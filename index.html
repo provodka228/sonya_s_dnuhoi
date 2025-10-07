@@ -17,6 +17,10 @@
             --accent: #FFD166;
             --light: #FFF5F7;
             --dark: #2D3047;
+            --disco-1: #FF6B8B;
+            --disco-2: #6A67CE;
+            --disco-3: #FFD166;
+            --disco-4: #4ECDC4;
         }
 
         body {
@@ -29,6 +33,48 @@
             padding: 20px;
             color: var(--light);
             overflow-x: hidden;
+            animation: discoBackground 8s ease-in-out infinite;
+        }
+
+        /* Анимация дискотечного фона */
+        @keyframes discoBackground {
+            0%, 100% { 
+                background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            }
+            25% { 
+                background: linear-gradient(135deg, #2d1a4e 0%, #1e2a4e 50%, #1a3460 100%);
+            }
+            50% { 
+                background: linear-gradient(135deg, #4e1a4e 0%, #2a1e4e 50%, #341a60 100%);
+            }
+            75% { 
+                background: linear-gradient(135deg, #1a2d4e 0%, #4e1e2a 50%, #601a34 100%);
+            }
+        }
+
+        /* Танцующие элементы */
+        .dancing-element {
+            position: fixed;
+            font-size: 2em;
+            z-index: 50;
+            pointer-events: none;
+            animation: dance 3s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes dance {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+            25% { 
+                transform: translateY(-20px) rotate(-10deg) scale(1.1);
+            }
+            50% { 
+                transform: translateY(-10px) rotate(10deg) scale(1.2);
+            }
+            75% { 
+                transform: translateY(-15px) rotate(-5deg) scale(1.1);
+            }
         }
 
         /* Конфетти взрыв */
@@ -80,6 +126,41 @@
             }
         }
 
+        /* Эмодзи при клике */
+        .click-emoji {
+            position: fixed;
+            font-size: 2em;
+            z-index: 2000;
+            pointer-events: none;
+            animation: emojiFloat 2s ease-out forwards;
+        }
+
+        @keyframes emojiFloat {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        /* Блики при наведении на текст */
+        .glow-text {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .glow-text:hover {
+            text-shadow: 
+                0 0 20px currentColor,
+                0 0 40px currentColor,
+                0 0 60px currentColor;
+            transform: scale(1.05);
+            color: #fff !important;
+        }
+
         /* Салют */
         .firework {
             position: fixed;
@@ -123,6 +204,25 @@
             margin-bottom: 30px;
             position: relative;
             z-index: 100;
+            animation: cardGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes cardGlow {
+            0%, 100% { 
+                box-shadow: 
+                    0 8px 32px rgba(255, 107, 139, 0.3),
+                    0 2px 8px rgba(255, 255, 255, 0.1);
+            }
+            33% { 
+                box-shadow: 
+                    0 8px 32px rgba(106, 103, 206, 0.3),
+                    0 2px 8px rgba(255, 255, 255, 0.1);
+            }
+            66% { 
+                box-shadow: 
+                    0 8px 32px rgba(255, 209, 102, 0.3),
+                    0 2px 8px rgba(255, 255, 255, 0.1);
+            }
         }
 
         .header {
@@ -139,6 +239,25 @@
             margin-bottom: 10px;
             font-weight: 800;
             text-shadow: 0 0 30px rgba(255, 107, 139, 0.5);
+            animation: titleColorShift 6s ease-in-out infinite;
+        }
+
+        @keyframes titleColorShift {
+            0%, 100% { 
+                background: linear-gradient(135deg, #FF6B8B, #FFD166, #4ECDC4);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+            33% { 
+                background: linear-gradient(135deg, #FFD166, #4ECDC4, #6A67CE);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
+            66% { 
+                background: linear-gradient(135deg, #4ECDC4, #6A67CE, #FF6B8B);
+                -webkit-background-clip: text;
+                background-clip: text;
+            }
         }
 
         .subtitle {
@@ -168,6 +287,18 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: photoFramePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes photoFramePulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(255, 107, 139, 0.3);
+            }
+            50% { 
+                transform: scale(1.02);
+                box-shadow: 0 15px 40px rgba(106, 103, 206, 0.4);
+            }
         }
 
         .photo-container {
@@ -229,6 +360,13 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             border-left: 5px solid var(--accent);
             backdrop-filter: blur(10px);
+            animation: messageCardGlow 5s ease-in-out infinite;
+        }
+
+        @keyframes messageCardGlow {
+            0%, 100% { border-left-color: #FFD166; }
+            33% { border-left-color: #4ECDC4; }
+            66% { border-left-color: #6A67CE; }
         }
 
         .message-text {
@@ -244,6 +382,12 @@
             border-radius: 20px;
             border: 2px dashed rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(10px);
+            animation: controlsPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes controlsPulse {
+            0%, 100% { border-color: rgba(255, 255, 255, 0.3); }
+            50% { border-color: rgba(255, 209, 102, 0.6); }
         }
 
         .control-group {
@@ -327,40 +471,31 @@
             flex: 1;
             min-width: 140px;
             backdrop-filter: blur(10px);
+            animation: btnColorShift 8s ease-in-out infinite;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.3);
+        @keyframes btnColorShift {
+            0%, 100% { 
+                background: linear-gradient(135deg, var(--primary), var(--secondary));
+                box-shadow: 0 4px 15px rgba(255, 107, 139, 0.3);
+            }
+            25% { 
+                background: linear-gradient(135deg, var(--secondary), var(--accent));
+                box-shadow: 0 4px 15px rgba(106, 103, 206, 0.3);
+            }
+            50% { 
+                background: linear-gradient(135deg, var(--accent), #4ECDC4);
+                box-shadow: 0 4px 15px rgba(255, 209, 102, 0.3);
+            }
+            75% { 
+                background: linear-gradient(135deg, #4ECDC4, var(--primary));
+                box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+            }
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 107, 139, 0.5);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, var(--accent), #FF9A8B);
-            color: var(--dark);
-            box-shadow: 0 4px 15px rgba(255, 209, 102, 0.3);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 209, 102, 0.5);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--secondary);
-            color: white;
+        .btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            filter: brightness(1.2);
         }
 
         .music-info {
@@ -408,18 +543,26 @@
     </style>
 </head>
 <body>
+    <!-- Танцующие элементы -->
+    <div class="dancing-element" style="top: 10%; left: 5%; animation-delay: 0s;">💃</div>
+    <div class="dancing-element" style="top: 15%; right: 8%; animation-delay: 0.5s;">🕺</div>
+    <div class="dancing-element" style="bottom: 20%; left: 7%; animation-delay: 1s;">🎉</div>
+    <div class="dancing-element" style="bottom: 15%; right: 5%; animation-delay: 1.5s;">✨</div>
+    <div class="dancing-element" style="top: 30%; left: 15%; animation-delay: 2s;">🌟</div>
+    <div class="dancing-element" style="top: 25%; right: 12%; animation-delay: 2.5s;">🎊</div>
+
     <!-- Основная карточка -->
     <div class="glass-card">
         <div class="header">
-            <h1 class="title">С Днём Рождения!</h1>
-            <div class="subtitle">Этот сайт создан специально для тебя, Соня! 💖</div>
+            <h1 class="title glow-text">С Днём Рождения!</h1>
+            <div class="subtitle glow-text">Этот сайт создан специально для тебя, Соня! 💖</div>
         </div>
 
         <!-- Сетка с фото-рамками -->
         <div class="photos-grid">
             <!-- Рамка 1 -->
             <div class="photo-section">
-                <div class="photo-title">📸 Наше лучшее фото</div>
+                <div class="photo-title glow-text">📸 Наше лучшее фото</div>
                 <div class="photo-frame">
                     <div class="photo-container" onclick="document.getElementById('photoUpload1').click()">
                         <div class="photo-placeholder">
@@ -434,7 +577,7 @@
 
             <!-- Рамка 2 -->
             <div class="photo-section">
-                <div class="photo-title">💫 Весёлые моменты</div>
+                <div class="photo-title glow-text">💫 Весёлые моменты</div>
                 <div class="photo-frame">
                     <div class="photo-container" onclick="document.getElementById('photoUpload2').click()">
                         <div class="photo-placeholder">
@@ -449,7 +592,7 @@
 
             <!-- Рамка 3 -->
             <div class="photo-section">
-                <div class="photo-title">🎉 Праздничное фото</div>
+                <div class="photo-title glow-text">🎉 Праздничное фото</div>
                 <div class="photo-frame">
                     <div class="photo-container" onclick="document.getElementById('photoUpload3').click()">
                         <div class="photo-placeholder">
@@ -466,14 +609,14 @@
         <div class="main-content">
             <!-- Левая колонка - музыка -->
             <div class="photo-section">
-                <div class="music-info" id="musicStatus">🎵 Музыка не загружена</div>
+                <div class="music-info glow-text" id="musicStatus">🎵 Музыка не загружена</div>
                 <div id="savedIndicator" class="saved-indicator" style="display: none;">✅ Все сохранено!</div>
             </div>
 
             <!-- Правая колонка - сообщение и управление -->
             <div class="message-section">
                 <div class="message-card">
-                    <div class="message-text" id="birthdayMessage">
+                    <div class="message-text glow-text" id="birthdayMessage">
                         Дорогая Соня! В этот особенный день я хочу пожелать тебе бесконечного счастья, 
                         ярких впечатлений и исполнения самых заветных желаний! Пусть каждый твой день 
                         будет наполнен радостью, любовью и волшебством! 🎉
@@ -482,12 +625,12 @@
 
                 <div class="controls-panel">
                     <div class="control-group">
-                        <label class="control-label">💌 Твоё поздравление</label>
+                        <label class="control-label glow-text">💌 Твоё поздравление</label>
                         <textarea class="text-input" id="textInput" placeholder="Напиши своё персональное поздравление здесь..."></textarea>
                     </div>
 
                     <div class="control-group">
-                        <label class="control-label">🎵 Загрузи праздничную музыку</label>
+                        <label class="control-label glow-text">🎵 Загрузи праздничную музыку</label>
                         <input type="file" id="musicUpload" class="file-input" accept="audio/*">
                     </div>
 
@@ -507,6 +650,43 @@
         let audioElement = null;
         let currentMusicBlob = null;
 
+        // Создание танцующих элементов
+        function createDancingElements() {
+            const danceEmojis = ['💃', '🕺', '🎉', '✨', '🌟', '🎊', '🥳', '🎈'];
+            const container = document.body;
+            
+            // Уже есть 6 статических, добавим еще 4 случайных
+            for (let i = 0; i < 4; i++) {
+                const element = document.createElement('div');
+                element.className = 'dancing-element';
+                element.innerHTML = danceEmojis[Math.floor(Math.random() * danceEmojis.length)];
+                
+                element.style.left = Math.random() * 90 + 5 + '%';
+                element.style.top = Math.random() * 80 + 10 + '%';
+                element.style.animationDelay = Math.random() * 3 + 's';
+                element.style.fontSize = (1.5 + Math.random()) + 'em';
+                
+                container.appendChild(element);
+            }
+        }
+
+        // Эмодзи при клике
+        function createClickEmoji(x, y) {
+            const emojis = ['🎉', '✨', '🌟', '💖', '🎊', '🥳', '🎈', '💫', '😊', '🎂'];
+            const emoji = document.createElement('div');
+            emoji.className = 'click-emoji';
+            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.left = x + 'px';
+            emoji.style.top = y + 'px';
+            emoji.style.fontSize = (1.5 + Math.random()) + 'em';
+            
+            document.body.appendChild(emoji);
+            
+            setTimeout(() => {
+                emoji.remove();
+            }, 2000);
+        }
+
         // Крутые конфетти со взрывом снизу
         function createConfettiExplosion() {
             const confettiCount = 80;
@@ -516,18 +696,12 @@
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti-piece';
                 
-                // Позиционируем внизу экрана
                 const startX = Math.random() * window.innerWidth;
                 confetti.style.left = startX + 'px';
                 confetti.style.bottom = '0px';
                 
-                // Случайная задержка для эффекта взрыва
                 const delay = Math.random() * 0.5;
-                
-                // Случайная продолжительность анимации
                 const duration = 2 + Math.random() * 1;
-                
-                // Случайное смещение по X
                 const translateX = (Math.random() - 0.5) * 200;
                 
                 confetti.style.animation = `
@@ -539,7 +713,6 @@
                 
                 container.appendChild(confetti);
                 
-                // Удаляем конфетти после анимации
                 setTimeout(() => {
                     confetti.remove();
                 }, (duration + delay) * 1000);
@@ -595,7 +768,6 @@
                 particle.style.setProperty('--tx', tx + 'px');
                 particle.style.setProperty('--ty', ty + 'px');
                 
-                // Добавляем свечение
                 particle.style.boxShadow = `0 0 8px currentColor`;
                 
                 firework.appendChild(particle);
@@ -607,6 +779,15 @@
                 firework.remove();
             }, 1500);
         }
+
+        // Обработчик кликов для эмодзи
+        document.addEventListener('click', function(e) {
+            // Не создаем эмодзи при клике на интерактивные элементы
+            if (!e.target.closest('button') && !e.target.closest('input') && !e.target.closest('textarea')) {
+                createClickEmoji(e.clientX, e.clientY);
+                createConfettiExplosion();
+            }
+        });
 
         // Сохранение в localStorage
         function saveToStorage(key, data) {
@@ -774,14 +955,25 @@
                 document.getElementById('musicStatus').textContent = `🎵 Готово: ${musicName}`;
             }
 
-            // Запускаем крутые анимации при загрузке
+            // Запускаем дискотеку!
+            createDancingElements();
+            
             setTimeout(() => {
-                createConfettiExplosion(); // Взрыв конфетти снизу
+                createConfettiExplosion();
             }, 500);
             
             setTimeout(() => {
-                createFireworks(); // Салют через секунду
+                createFireworks();
             }, 1000);
+
+            // Периодические анимации
+            setInterval(() => {
+                createConfettiExplosion();
+            }, 8000);
+
+            setInterval(() => {
+                createFireworks();
+            }, 12000);
         });
 
         // Автосохранение при изменении текста
