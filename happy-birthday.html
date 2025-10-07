@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днем Рождения, Соня! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .birthday-girl {
+            font-size: 2.5em;
+            color: #FFD700;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .message {
+            color: white;
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .wishes {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .wish-item {
+            color: white;
+            font-size: 1.1em;
+            margin: 10px 0;
+            padding: 8px;
+            border-left: 3px solid #FFD700;
+            text-align: left;
+        }
+
+        .balloons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .balloon {
+            width: 50px;
+            height: 60px;
+            border-radius: 50%;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .balloon:nth-child(1) { background: #FF6B6B; animation-delay: 0s; }
+        .balloon:nth-child(2) { background: #4ECDC4; animation-delay: 0.5s; }
+        .balloon:nth-child(3) { background: #FFD166; animation-delay: 1s; }
+        .balloon:nth-child(4) { background: #06D6A0; animation-delay: 1.5s; }
+        .balloon:nth-child(5) { background: #118AB2; animation-delay: 2s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hearts {
+            font-size: 2em;
+            color: #FF6B6B;
+            margin: 20px 0;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .footer {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1em;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .glass-card {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .birthday-girl {
+                font-size: 1.8em;
+            }
+            
+            .subtitle {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="glass-card">
+            <div class="header">
+                <h1>🎂 С Днем Рождения! 🎂</h1>
+                <div class="subtitle">Дорогая</div>
+                <div class="birthday-girl">СОНЯ!</div>
+            </div>
+
+            <div class="balloons">
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+                <div class="balloon"></div>
+            </div>
+
+            <div class="message">
+                Поздравляю тебя с этим замечательным днем! Пусть в твоей жизни будет много счастья, 
+                радости и удивительных моментов. Ты заслуживаешь всего самого лучшего!
+            </div>
+
+            <div class="wishes">
+                <div class="wish-item">✨ Здоровья и энергии</div>
+                <div class="wish-item">💫 Исполнения всех желаний</div>
+                <div class="wish-item">🌟 Ярких впечатлений</div>
+                <div class="wish-item">🎯 Удачи во всех начинаниях</div>
+                <div class="wish-item">💖 Много любви и тепла</div>
+            </div>
+
+            <div class="hearts">💖 💖 💖</div>
+
+            <div class="footer">
+                С наилучшими пожеланиями в твой особенный день!
+            </div>
+        </div>
+    </div>
+</body>
+</html>
